@@ -1,0 +1,9 @@
+server:
+  port: 8102
+  servlet:
+    context-path: /jacksonapi
+
+api:
+  client:
+    access-key: jackson
+    secret-key: fighting

@@ -1,0 +1,61 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: jacksonapi-backend
+  # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jackson_api
+    username: root
+    password: jjw000000
+  # 配置 Spring MVC 中的路径匹配策略，支持通配符匹配
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  # session 配置
+  session:
+    # 30 天过期
+    timeout: 2592000
+    store-type: redis
+  # redis 配置
+  redis:
+    port: 6379
+    host: localhost
+    database: 0
+
+server:
+  port: 8101
+  servlet:
+    context-path: /jacksonapi
+
+mybatis-plus:
+  configuration:
+    # 不开启下划线命名转驼峰
+    map-underscore-to-camel-case: false
+    # 将日志输出到标准输出，可以看到 sql 的执行过程
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: isDeleted # 全局逻辑删除的实体字段名
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+
+# 这段配置仅供测试，实际应该根据登录用户获取对应的 ak sk
+api:
+  client:
+    access-key: jackson
+    secret-key: fighting
+
+dubbo:
+  application:
+    name: dubbo-springboot-jacksonapi-provider
+    qosEnable: true
+    qosPort: 22222
+    qosAcceptForeignIp: false
+  protocol:
+    name: dubbo
+    port: 8107
+  registry:
+    id: nacos-registry
+    address: nacos://localhost:8848

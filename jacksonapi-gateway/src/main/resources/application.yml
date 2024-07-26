@@ -1,0 +1,24 @@
+server:
+  port: 8103
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: api_route
+          uri: http://localhost:8102
+          predicates:
+            - Path=/jacksonapi/**
+
+dubbo:
+  application:
+    name: dubbo-springboot-jacksonapi-consumer
+    qosEnable: true
+    qosPort: 33333
+    qosAcceptForeignIp: false
+  protocol:
+    name: dubbo
+    port: 8108
+  registry:
+    id: nacos-registry
+    address: nacos://localhost:8848

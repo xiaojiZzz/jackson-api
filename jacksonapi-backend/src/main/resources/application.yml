@@ -8,7 +8,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/jackson_api
     username: root
-    password: jjw000000
+    password: your password
   # 配置 Spring MVC 中的路径匹配策略，支持通配符匹配
   mvc:
     pathmatch:

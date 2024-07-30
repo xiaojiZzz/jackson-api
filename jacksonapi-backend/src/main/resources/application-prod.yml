@@ -6,7 +6,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/jackson_api
     username: jackson_api
-    password: jjw000000
+    password: your password
   # 配置 Spring MVC 中的路径匹配策略，支持通配符匹配
   mvc:
     pathmatch:
@@ -21,7 +21,7 @@ spring:
     port: 6379
     host: localhost
     database: 0
-    password: jjw000000
+    password: your password
 
 server:
   port: 8101

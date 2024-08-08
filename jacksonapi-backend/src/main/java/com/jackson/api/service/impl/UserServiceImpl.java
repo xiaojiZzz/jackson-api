@@ -6,9 +6,13 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jackson.api.common.StatusCode;
 import com.jackson.api.exception.BusinessException;
+import com.jackson.api.mapper.UserInterfaceInvokeMapper;
 import com.jackson.api.mapper.UserMapper;
+import com.jackson.api.service.InterfaceInfoService;
 import com.jackson.api.service.UserService;
+import com.jackson.apicommon.model.entity.InterfaceInfo;
 import com.jackson.apicommon.model.entity.User;
+import com.jackson.apicommon.model.entity.UserInterfaceInvoke;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
@@ -16,6 +20,8 @@ import org.springframework.util.DigestUtils;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+
+import java.util.List;
 
 import static com.jackson.api.constant.UserConstant.ADMIN_ROLE;
 import static com.jackson.api.constant.UserConstant.USER_LOGIN_STATE;
@@ -29,6 +35,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Resource
     private UserMapper userMapper;
+
+    @Resource
+    private UserInterfaceInvokeMapper userInterfaceInvokeMapper;
+
+    @Resource
+    private InterfaceInfoService interfaceInfoService;
 
     /**
      * 盐值，混淆密码
@@ -64,7 +76,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
         // 密码长度要符合要求
         if (userPassword.length() < 6) {
-            throw new BusinessException(StatusCode.PARAMS_ERROR, "用户密码过短");
+            throw new BusinessException(StatusCode.PARAMS_ERROR, "用户密码不能少于 6 位");
         }
         // 加锁，防止多线程创建同一个账户，使用 intern() 保证字符串引用的唯一性
         synchronized (userAccount.intern()) {
@@ -91,6 +103,20 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             if (!saveResult) {
                 throw new BusinessException(StatusCode.SYSTEM_ERROR, "注册失败，请重试");
             }
+
+            // 5. 为用户增加 api 调用的次数
+            InterfaceInfo interfaceInfo = new InterfaceInfo();
+            QueryWrapper<InterfaceInfo> interfaceInfoQueryWrapper = new QueryWrapper<>(interfaceInfo);
+            List<InterfaceInfo> interfaceInfoList = interfaceInfoService.list(interfaceInfoQueryWrapper);
+            for (InterfaceInfo info : interfaceInfoList) {
+                UserInterfaceInvoke userInterfaceInvoke = new UserInterfaceInvoke();
+                Long interfaceId = info.getId();
+                userInterfaceInvoke.setUserId(user.getId());
+                userInterfaceInvoke.setInterfaceId(interfaceId);
+                userInterfaceInvoke.setLeftNum(100);
+                userInterfaceInvokeMapper.insert(userInterfaceInvoke);
+            }
+
             // save() 方法保存对象到数据库后，会自动将用户 id 赋值给 user
             return user.getId();
         }

@@ -6,6 +6,11 @@ import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
+/**
+ * 用户调用接口 Mapper 接口
+ *
+ * @author jackson
+ */
 @Mapper
 public interface UserInterfaceInvokeMapper extends BaseMapper<UserInterfaceInvoke> {
 

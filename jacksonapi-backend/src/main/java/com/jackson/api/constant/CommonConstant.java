@@ -2,6 +2,8 @@ package com.jackson.api.constant;
 
 /**
  * 通用常量
+ *
+ * @author jackson
  */
 public interface CommonConstant {
 

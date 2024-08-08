@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 /**
  * 接口信息服务实现类
+ *
+ * @author jackson
  */
 @Service
 public class InterfaceInfoServiceImpl extends ServiceImpl<InterfaceInfoMapper, InterfaceInfo>

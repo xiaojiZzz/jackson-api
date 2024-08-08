@@ -5,6 +5,8 @@ import com.jackson.apicommon.model.entity.UserInterfaceInvoke;
 
 /**
  * 用户调用接口服务
+ *
+ * @author jackson
  */
 public interface UserInterfaceInvokeService extends IService<UserInterfaceInvoke> {
 
@@ -27,6 +29,7 @@ public interface UserInterfaceInvokeService extends IService<UserInterfaceInvoke
 
     /**
      * 判断用户是否有剩余调用次数
+     *
      * @param interfaceId
      * @param userId
      * @return

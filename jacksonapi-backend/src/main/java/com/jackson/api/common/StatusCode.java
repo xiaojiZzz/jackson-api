@@ -2,6 +2,8 @@ package com.jackson.api.common;
 
 /**
  * 状态码
+ *
+ * @author jackson
  */
 public enum StatusCode {
 

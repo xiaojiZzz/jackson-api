@@ -8,6 +8,8 @@ import javax.annotation.Resource;
 
 /**
  * 内部用户接口调用服务实现类
+ *
+ * @author jackson
  */
 @DubboService
 public class InnerUserInterfaceInvokeServiceImpl implements InnerUserInterfaceInvokeService {

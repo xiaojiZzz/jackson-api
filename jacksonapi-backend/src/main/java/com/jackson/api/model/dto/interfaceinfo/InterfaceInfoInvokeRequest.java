@@ -6,6 +6,8 @@ import java.io.Serializable;
 
 /**
  * 接口调用请求
+ *
+ * @author jackson
  */
 @Data
 public class InterfaceInfoInvokeRequest implements Serializable {

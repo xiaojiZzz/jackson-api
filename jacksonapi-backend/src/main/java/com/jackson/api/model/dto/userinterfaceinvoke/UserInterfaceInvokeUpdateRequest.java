@@ -5,7 +5,9 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * 更新请求
+ * 更新用户调用接口请求
+ *
+ * @author jackson
  */
 @Data
 public class UserInterfaceInvokeUpdateRequest implements Serializable {

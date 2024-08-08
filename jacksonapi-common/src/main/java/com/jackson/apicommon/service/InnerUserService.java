@@ -4,6 +4,8 @@ import com.jackson.apicommon.model.entity.User;
 
 /**
  * 内部用户服务
+ *
+ * @author jackson
  */
 public interface InnerUserService {
 

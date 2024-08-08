@@ -21,7 +21,9 @@ import static com.jackson.apiinterface.utils.RequestUtils.buildUrl;
 import static com.jackson.apiinterface.utils.RequestUtils.get;
 
 /**
- * 名称 API
+ * 接口 API
+ *
+ * @author jackson
  */
 @RestController
 @RequestMapping("/")

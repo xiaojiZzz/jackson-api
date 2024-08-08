@@ -8,8 +8,10 @@ import java.util.Date;
 
 /**
  * 用户调用接口关系表
+ *
+ * @author jackson
  */
-@TableName(value ="user_interface_invoke")
+@TableName(value = "user_interface_invoke")
 @Data
 public class UserInterfaceInvoke implements Serializable {
 

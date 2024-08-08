@@ -2,6 +2,8 @@ package com.jackson.api.model.enums;
 
 /**
  * 接口信息状态枚举类
+ *
+ * @author jackson
  */
 public enum InterfaceInfoStatusEnum {
 

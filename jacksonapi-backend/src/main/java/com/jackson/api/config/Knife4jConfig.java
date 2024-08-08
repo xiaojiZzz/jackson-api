@@ -12,6 +12,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * Knife4j 接口文档配置
+ *
+ * @author jackson
  */
 @Configuration
 @EnableSwagger2

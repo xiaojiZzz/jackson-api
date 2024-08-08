@@ -2,6 +2,8 @@ package com.jackson.api.common;
 
 /**
  * 结果工具类
+ *
+ * @author jackson
  */
 public class ResultUtils {
 

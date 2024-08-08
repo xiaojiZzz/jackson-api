@@ -7,6 +7,8 @@ import lombok.ToString;
 
 /**
  * 接口信息封装视图
+ *
+ * @author jackson
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

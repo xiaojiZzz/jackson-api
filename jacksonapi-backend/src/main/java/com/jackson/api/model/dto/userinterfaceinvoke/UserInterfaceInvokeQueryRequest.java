@@ -7,7 +7,9 @@ import lombok.EqualsAndHashCode;
 import java.io.Serializable;
 
 /**
- * 查询请求
+ * 查询用户调用接口请求
+ *
+ * @author jackson
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

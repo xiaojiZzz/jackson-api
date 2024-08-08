@@ -28,6 +28,8 @@ import static com.jackson.api.constant.UserConstant.USER_LOGIN_STATE;
 
 /**
  * 用户服务实现类
+ *
+ * @author jackson
  */
 @Service
 @Slf4j

@@ -6,6 +6,8 @@ import java.io.Serializable;
 
 /**
  * 更新接口请求
+ *
+ * @author jackson
  */
 @Data
 public class InterfaceInfoUpdateRequest implements Serializable {

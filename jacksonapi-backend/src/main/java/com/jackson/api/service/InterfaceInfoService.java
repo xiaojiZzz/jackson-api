@@ -5,11 +5,14 @@ import com.jackson.apicommon.model.entity.InterfaceInfo;
 
 /**
  * 接口信息服务
+ *
+ * @author jackson
  */
 public interface InterfaceInfoService extends IService<InterfaceInfo> {
 
     /**
      * 校验接口
+     *
      * @param interfaceInfo
      * @param add
      */

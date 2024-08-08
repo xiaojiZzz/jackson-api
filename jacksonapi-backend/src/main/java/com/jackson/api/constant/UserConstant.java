@@ -2,6 +2,8 @@ package com.jackson.api.constant;
 
 /**
  * 用户常量
+ *
+ * @author jackson
  */
 public interface UserConstant {
 

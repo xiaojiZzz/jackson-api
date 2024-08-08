@@ -32,6 +32,8 @@ import java.util.List;
 
 /**
  * 全局过滤器
+ *
+ * @author jackson
  */
 @Slf4j
 @Component

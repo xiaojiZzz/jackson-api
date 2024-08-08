@@ -13,6 +13,8 @@ import javax.annotation.Resource;
 
 /**
  * 内部接口信息服务实现类
+ *
+ * @author jackson
  */
 @DubboService
 public class InnerInterfaceInfoServiceImpl implements InnerInterfaceInfoService {

@@ -8,6 +8,8 @@ import java.io.Serializable;
 
 /**
  * 接口查询请求
+ *
+ * @author jackson
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

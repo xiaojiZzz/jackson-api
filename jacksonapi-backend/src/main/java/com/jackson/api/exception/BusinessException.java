@@ -4,6 +4,8 @@ import com.jackson.api.common.StatusCode;
 
 /**
  * 自定义异常类
+ *
+ * @author jackson
  */
 public class BusinessException extends RuntimeException {
 

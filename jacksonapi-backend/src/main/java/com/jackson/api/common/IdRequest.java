@@ -6,6 +6,8 @@ import java.io.Serializable;
 
 /**
  * 请求 id
+ *
+ * @author jackson
  */
 @Data
 public class IdRequest implements Serializable {

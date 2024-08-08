@@ -23,6 +23,8 @@ import java.util.stream.Collectors;
 
 /**
  * 权限校验 AOP
+ *
+ * @author jackson
  */
 @Aspect
 @Component
